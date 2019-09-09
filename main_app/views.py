@@ -1,9 +1,17 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import Yorkie
 
 # Create your views here.
 def home(request):
-    return HttpResponse ('Welcome to Yorkie Collector!')
+    return render(request, 'home.html')
 
 def about(request):
-    return HttpResponse ('This is Beth\'s Yorkie Collector!')
+    return render(request, 'about.html')
+
+def yorkies_index(request):
+  yorkies = Yorkie.objects.all()
+  return render(request, 'yorkies/index.html', { 'yorkies': yorkies })
+
+def yorkies_detail(request, yorkie_id):
+  yorkie = Yorkie.objects.get(id=yorkie_id)
+  return render(request, 'yorkies/detail.html', {'yorkie': yorkie })

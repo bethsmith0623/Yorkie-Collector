@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Yorkie List</h1>
+
+{% for yorkie in yorkies %}
+    <div class="card">
+        <!-- add this single line below -->
+        <a href="{% url 'detail' yorkie.id %}">
+          <div class="card-content">
+            <span class="card-title">{{ yorkie.name }}</span>
+            <p>Sire: {{ yorkie.sire }}</p>
+            <p>Dame: {{ yorkie.dame }}</p>
+            <p>Description: {{ yorkie.description }}</p>
+            {% if yorkie.age > 0 %}
+              <p>Age: {{ yorkie.age }}</p>
+            {% else %}
+              <p>Age: Puppy</p>
+            {% endif %}
+          </div>
+        <!-- and this following one as well -->
+        </a>
+    </div>
+{% endfor %}
+
+{% endblock %}
