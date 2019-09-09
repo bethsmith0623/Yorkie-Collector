@@ -2,11 +2,12 @@ from django.db import models
 
 # Create your models here.
 class Yorkie(models.Model):
-    name = 
-    sire = 
-    dame = 
-    description = 
-    age = 
+    name = models.CharField(max_length=150)
+    sire = models.CharField(max_length=150)
+    dame = models.CharField(max_length=150)
+    description = models.TextField(max_length=300)
+    age = models.IntegerField()
+    registered = models.BooleanField(default=False)
 
     def __str__(self):
         return f'{self.name} ({self.id})'

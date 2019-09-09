@@ -12,3 +12,8 @@ body {
     padding-top: 0;
     text-align: right;
   }
+
+  .indented {
+    padding-left: 50pt;
+    padding-right: 50pt;
+  }
