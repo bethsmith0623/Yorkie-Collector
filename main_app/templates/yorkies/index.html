@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Yorkie List</h1>
+<h2 class="purple-text">Yorkie List</h2>
 
 {% for yorkie in yorkies %}
     <div class="card">
@@ -16,10 +16,10 @@
             <p>Description: {{ yorkie.description }}</p>
             {% if yorkie.age > 0 %}
               <p>Age: {{ yorkie.age }}</p>
-              <p>Registered:{{ yorkie.registered }}</p>
-            {% else %}
+              {% else %}
               <p>Age: Puppy</p>
-            {% endif %}
+              {% endif %}
+            <p>Registered:{{ yorkie.registered }}</p>
           </div>
         <!-- and this following one as well -->
         </a>

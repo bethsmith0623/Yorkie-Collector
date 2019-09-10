@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% if object %}
+    <h2 class="indigo-text">Edit {{object.name}}'s Details</h2>
+    {% else %}
+    <h2 class="pink-text">Add a new Yorkie to your Collector</h2>
+{% endif %}
+
+<form action="" method="post">
+{% csrf_token %}
+<table>
+    <tbody>
+        {{ form.as_table }}
+    </tbody>
+</table>
+<input type="submit" value="Submit!" class="btn">
+</form>
+
+{% endblock %}

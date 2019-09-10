@@ -18,10 +18,13 @@
                     <li><a href="/" class="left brand-logo">&nbsp;&nbsp;Yorkie Collector</a></li>
                 </ul>
                 <ul class="right">
-                    <li><a href="/admin">Admin Only</a></li>
+                    <li><a href="/admin">Admin</a></li>
                     <li><a href="/">Home</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/yorkies">View All My Yorkies</a></li>
+                    <!-- <li><a href="/about">About</a></li> -->
+                    <li><a href={% url 'about' %}>About</a></li>
+                    <li><a href={% url 'yorkies_create' %}>Add a Yorkie</a></li>
+                    <!-- <li><a href="/yorkies">View All My Yorkies</a></li> -->
+                    <li><a href={% url 'index' %}>View All My Yorkies</a></li>
                 </ul>
             </div>
         </nav>

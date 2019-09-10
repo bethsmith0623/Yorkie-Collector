@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Yorkie
 
 # Create your views here.
@@ -15,3 +16,16 @@ def yorkies_index(request):
 def yorkies_detail(request, yorkie_id):
   yorkie = Yorkie.objects.get(id=yorkie_id)
   return render(request, 'yorkies/detail.html', {'yorkie': yorkie })
+
+class YorkieCreate(CreateView):
+  model = Yorkie
+  fields = '__all__'
+
+class YorkieUpdate(UpdateView):
+  model = Yorkie
+  fields = ['fixed', 'description', 'age', 'registered']
+
+class YorkieDelete(DeleteView):
+  model = Yorkie
+  success_url = '/yorkies/'
+

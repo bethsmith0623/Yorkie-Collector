@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h3>Remove <span class="red-text">{{object.name}} </span>from Collector</h3>
+<h5>Are you sure? Really, REALLY sure?</h5>
+<p><span class="red-text">WARNING!</span>This action will permanently delete this Yorkie from your Collector.</p>
+<form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Yes - Delete!" class="btn">
+    <a href="{% url 'detail' yorkie.id %}" class="indigo-text">Cancel</a>
+</form>
+
+{% endblock %}
