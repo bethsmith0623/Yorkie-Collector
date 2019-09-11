@@ -26,7 +26,23 @@
         <a href="{% url 'yorkies_delete' yorkie.id %}">Delete</a>
       </div>
     </div>
+    {% for photo in yorkie.photo_set.all %}
+      <img class="responsive-img card-panel" src="{{ photo.url }}">
+    {% empty %}
+      <div class="card-panel purple-text center-align">No Photos Uploaded</div>
+    {% endfor %}
+
+    <form action="{% url 'add_photo' yorkie.id %}" enctype="multipart/form-data" method="post" class="card-panel">
+      {% csrf_token %}
+      <input type="file" name="photo-file">
+      <br><br>
+      <input type="submit" class="btn" value+"upload Photo">
+    </form>
   </div>
+
+
+
+
   <!--Grooming code-->
   <div class="col s6">
     <form action="{% url 'add_grooming' yorkie.id %}" method="post">
