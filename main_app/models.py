@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from datetime import date
+from django.contrib.auth.models import User
 
 CARE = (
     ('C', 'Coat brushing'),
@@ -31,6 +32,7 @@ class Yorkie(models.Model):
     age = models.IntegerField()
     registered = models.BooleanField(default=False)
     toys = models.ManyToManyField(Toy)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.name} ({self.id})'
